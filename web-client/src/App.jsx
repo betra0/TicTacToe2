@@ -3,6 +3,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './App.css'
 import MenuPage from './pages/menuPage';
+import LocalPage from './pages/localPage';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
     <>
       <Routes>
             <Route path="/" element={<MenuPage />} />
-            <Route path="/local" element={'hola'} />
+            <Route path="/local" element={<LocalPage/>} />
 
             <Route path="/config" element={''} />    
 
