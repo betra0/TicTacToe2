@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        'xxs': '15rem', // Añade un ancho máximo personalizado
+        'xxs': '15rem', 
+        'xxxs': '8rem', 
+
       },
     },
   },
