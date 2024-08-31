@@ -1,0 +1,21 @@
+# Ignorar el entorno virtual
+venv/
+
+# Ignorar archivos de configuración específicos del editor
+.vscode/
+.idea/
+*.swp
+
+# Ignorar archivos de sistema
+.DS_Store
+
+# Ignorar archivos de log
+*.log
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar otros archivos innecesarios
+*.md
