@@ -1,4 +1,4 @@
-function GridGame({items=[], onclick=()=>{}, deleteItem=null}){
+function GridGame({items=[], onclick=()=>{}, deleteItem=null, winner=null}){
     
     if(items==[]){
         items=[
@@ -23,7 +23,7 @@ function GridGame({items=[], onclick=()=>{}, deleteItem=null}){
           key={index}
           data-index={index} // Añade un atributo de datos para identificar el botón
           onClick={() => handleSquareClick(index)}
-          className={`border-4 border-gray-800 rounded w-full aspect-square flex items-center justify-center transition-bg duration-300 hover:bg-gray-700 ${deleteItem==index ? 'bg-gray-800 text-red-500' : ''}`}
+          className={`border-4 border-gray-800 rounded w-full aspect-square flex items-center justify-center transition-bg duration-300 hover:bg-gray-700 ${deleteItem==index&& !winner ? 'bg-gray-800 text-red-500' : ''}`}
         >
           {item}
         </button>
