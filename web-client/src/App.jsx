@@ -4,12 +4,15 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import './App.css'
 import MenuPage from './pages/menuPage';
 import LocalPage from './pages/localPage';
+import { ModalProvider } from './context/ModalContext';
+
 
 function App() {
 
   return (
     <>
-      <Routes>
+      <ModalProvider> 
+        <Routes>
             <Route path="/" element={<MenuPage />} />
             <Route path="/local" element={<LocalPage/>} />
 
@@ -19,6 +22,8 @@ function App() {
 
             <Route path="*" element={<h1> Ruta no encontrada </h1>} />  
           </Routes>
+      </ModalProvider>
+      
     </>
   )
 }

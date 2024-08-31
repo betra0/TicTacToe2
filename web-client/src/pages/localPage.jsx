@@ -3,6 +3,7 @@ import GridGame from '../components/gridGame';
 import { useEffect, useState } from 'react';
 import { turns } from '../models/turns';
 import logicWinner from '../utils/logicWinner';
+import { useModal } from '../context/ModalContext';
 
 
 
@@ -77,6 +78,36 @@ function useLocalPlay(){
 
 function LocalPage(){
     const {turn, oldItems, itemsGrid, handlerSquareClick, deleteItem, winner, resetGame} = useLocalPlay()
+    const { showModal, hideModal, BtnEnd } = useModal(); 
+
+    useEffect(() => {
+        if(winner!==null){
+
+            showModal({
+                title:'¡Victory!',
+                width:'270px',
+                btnsEnd: <BtnEnd onClick={()=>{
+                    resetGame()
+                    hideModal()
+
+                }} className='text-xl' > replay </BtnEnd> ,
+                content:
+                <div className='flex items-center justify-center'>
+                <p className='text-center text-white'>¡Player {winner} you won!</p>
+                
+                </div>
+    
+              })
+        }
+
+        return () => {
+          
+        };
+      }, [winner]);
+
+
+
+
 
     return(
     <main className="bg-gray-900 w-screen min-h-screen  flex items-center flex-col text-white">

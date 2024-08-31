@@ -1,0 +1,119 @@
+.btnCustom{
+    color: white;
+    border: none;
+}
+.modalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    .modalContent{
+        max-height: 600px;
+        
+        padding: 14px 20px 10px 20px ;
+        border-radius: 8px;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 1);
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: rgba(var(--actual-rgb2) ,1);
+        gap: 20px;
+        max-height: 100%;
+        .esc{
+            position: absolute;
+            color: #f1f1f1;
+            top:10px;
+            left: 10px;
+            background-color: transparent;
+            border: none;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .body{
+            width: 100%;
+            /* background-color:#9b020200 ; */
+            max-height: 100%;
+            overflow: auto;
+            padding: 0 10px 0 10px;
+            ::-webkit-scrollbar {
+                width: 2px; 
+              }
+              ::-webkit-scrollbar-thumb {
+                border-radius: 15px; // Radio de borde del 'pulgón'
+              }
+              ::-webkit-scrollbar-track {
+                background-color: #f1f1f1; // Color de fondo de la pista de la barra de desplazamiento
+              }
+              // Propiedades para la barra de desplazamiento en navegadores Firefox
+              scrollbar-width:thin; // Ancho de la barra de desplazamiento
+              scrollbar-color: black rgb(0,0,0 ,0.1); // Color del 'pulgón' y color de fondo de la pista
+             
+        }
+
+        .btnsFinal{
+            width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;  
+          gap: 10px;
+        }
+
+        .btn{
+            height: 34px;
+            padding: 0 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgb(var(--actual-rgb2), 0.2);
+            border: 1px solid rgb(var(--actual-rgb2), 0.5);
+            color: rgba(var(--actual-rgb2) ,1);
+            background-color: rgb(var(--actual-rgb), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: filter 100ms ease-in-out,
+             box-shadow 200ms ease-in-out;
+
+            &:active{
+                transform: scale(0.9);
+             }
+             &:hover{
+                filter: contrast(110%) brightness(110%);
+                box-shadow: 0 0 8px rgb(var(--actual-rgb2), 0.8);;
+             }
+        }
+        
+
+
+    }
+}
+
+
+.cyan{
+    background-color: #00868E;
+    color: white;
+    border: none;
+}
+.red{
+    background-color: #9B0202;
+    color: white;
+    border: none;
+}
+.purple{
+    
+    background-color: #51029B;
+    color: white;
+    border: none;
+}
