@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Definir el comando para ejecutar la aplicación
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
 
 # Exponer el puerto en el que la API escuchará
 EXPOSE 5000
