@@ -3,9 +3,17 @@ services:
   api:
     build:
       context: ./api
-        
+
     networks:
       - app-network
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DB=mydatabase
+    depends_on:
+      - db
+
 
   web:
     build:
@@ -14,7 +22,23 @@ services:
       - "80:80"
     networks:
       - app-network
+  db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "5001:3306"
+    networks:
+      - app-network
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  db-data:
