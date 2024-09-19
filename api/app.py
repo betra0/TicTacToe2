@@ -4,6 +4,7 @@ import os
 import mysql.connector
 from mysql.connector import Error
 import logging
+import time 
 
 
 app = Flask(__name__)
@@ -49,6 +50,7 @@ def raiz():
 @app.route('/usuarios', methods=['GET'])
 def get_usuarios():
     connection = create_connection()
+    time.sleep(2)
     if connection is None:
         return jsonify({"error": "No se pudo conectar a la base de datos"}), 500
 

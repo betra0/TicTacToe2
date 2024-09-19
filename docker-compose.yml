@@ -1,27 +1,15 @@
 version: '3.9'
 services:
-  api:
-    build:
-      context: ./api
-
-    networks:
-      - app-network
-    environment:
-      - MYSQL_HOST=db
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=rootpassword
-      - MYSQL_DB=mydatabase
-    depends_on:
-      - db
-
-
   web:
+    restart: always
     build:
       context: ./nginx
     ports:
       - "80:80"
     networks:
       - app-network
+
+
   db:
     image: mysql:latest
     restart: always
@@ -35,6 +23,33 @@ services:
     volumes:
       - db-data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  
+  api1:
+    build:
+      context: ./api
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DB=mydatabase
+    depends_on:
+      - db
+  api2:
+    build:
+      context: ./api
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DB=mydatabase
+    depends_on:
+      - db
 
 networks:
   app-network:
